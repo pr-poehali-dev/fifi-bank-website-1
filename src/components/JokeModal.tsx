@@ -64,22 +64,22 @@ export default function JokeModal({ isOpen, onClose, playSound }: JokeModalProps
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className={`bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl transform transition-all duration-500 ${
+      <div className={`bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 max-w-md w-full shadow-2xl transform transition-all duration-500 max-h-[90vh] overflow-y-auto ${
         isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
       }`}>
         {/* Заголовок */}
-        <div className="text-center mb-6">
-          <div className={`text-6xl mb-4 ${isAnimating ? currentJoke.animation : ''}`}>
+        <div className="text-center mb-4 sm:mb-6">
+          <div className={`text-4xl sm:text-5xl lg:text-6xl mb-3 sm:mb-4 ${isAnimating ? currentJoke.animation : ''}`}>
             {currentJoke.emoji}
           </div>
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-fun-blue to-fun-yellow bg-clip-text text-transparent">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-fun-blue to-fun-yellow bg-clip-text text-transparent px-2">
             Шутка дня от ФиФи банка! 🎭
           </h2>
         </div>
 
         {/* Шутка */}
-        <div className="bg-gradient-to-r from-fun-blue/10 to-fun-yellow/10 rounded-2xl p-6 mb-6">
-          <p className="text-lg text-center text-gray-700 leading-relaxed">
+        <div className="bg-gradient-to-r from-fun-blue/10 to-fun-yellow/10 rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 mb-4 sm:mb-6">
+          <p className="text-sm sm:text-base lg:text-lg text-center text-gray-700 leading-relaxed">
             {currentJoke.text}
           </p>
         </div>

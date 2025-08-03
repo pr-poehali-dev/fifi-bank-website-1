@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import JokeModal from "@/components/JokeModal";
@@ -13,6 +13,16 @@ export default function HeroSection({ playSound }: HeroSectionProps) {
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isLaughButtonAnimating, setIsLaughButtonAnimating] = useState(false);
   const [isInfoButtonAnimating, setIsInfoButtonAnimating] = useState(false);
+  
+  // Определяем размер экрана для адаптивности
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleLaughClick = () => {
     setIsLaughButtonAnimating(true);
@@ -40,27 +50,31 @@ export default function HeroSection({ playSound }: HeroSectionProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-fun-blue/20 via-transparent to-fun-yellow/20"></div>
         <div className="container mx-auto px-4 relative">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-fun-blue via-fun-yellow to-fun-blue bg-clip-text text-transparent animate-pulse">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-fun-blue via-fun-yellow to-fun-blue bg-clip-text text-transparent animate-pulse leading-tight">
               ФиФи банк
             </h1>
-            <p className="text-2xl md:text-3xl font-semibold text-gray-700 mb-4">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-700 mb-3 sm:mb-4 px-4 sm:px-0">
               Банк, где даже смех — валюта! 🤑
             </p>
-            <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-10 lg:mb-12 leading-relaxed max-w-2xl mx-auto px-4 sm:px-0">
               Кредиты под улыбку, депозиты в шутках и карты с мемами. 
               У нас даже банкоматы говорят "спасибо"! 🏧✨
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 px-4 sm:px-0">
               <Button 
                 onClick={handleLaughClick}
-                size="lg" 
+                size={isMobile ? "default" : "lg"}
                 className={`
                   bg-gradient-to-r from-fun-yellow to-fun-orange text-black 
-                  hover:from-fun-orange hover:to-fun-yellow text-xl px-12 py-4 
+                  hover:from-fun-orange hover:to-fun-yellow 
+                  text-base sm:text-lg lg:text-xl 
+                  px-6 sm:px-8 lg:px-12 py-3 sm:py-4 
+                  min-h-[48px] sm:min-h-[52px] lg:min-h-[56px]
+                  w-full sm:w-auto
                   transform transition-all duration-300 
-                  hover:scale-110 hover:shadow-2xl
-                  active:scale-95
+                  ${isMobile ? 'hover:scale-105' : 'hover:scale-110'} 
+                  hover:shadow-2xl active:scale-95
                   ${isLaughButtonAnimating ? 'animate-bounce scale-110' : ''}
                   relative overflow-hidden group
                 `}
@@ -91,14 +105,17 @@ export default function HeroSection({ playSound }: HeroSectionProps) {
               <Button 
                 onClick={handleInfoClick}
                 variant="outline" 
-                size="lg" 
+                size={isMobile ? "default" : "lg"}
                 className={`
                   border-2 border-fun-blue text-fun-blue 
                   hover:bg-fun-blue hover:text-white hover:border-fun-blue
-                  text-xl px-12 py-4 
+                  text-base sm:text-lg lg:text-xl 
+                  px-6 sm:px-8 lg:px-12 py-3 sm:py-4 
+                  min-h-[48px] sm:min-h-[52px] lg:min-h-[56px]
+                  w-full sm:w-auto
                   transform transition-all duration-300 
-                  hover:scale-110 hover:shadow-2xl
-                  active:scale-95
+                  ${isMobile ? 'hover:scale-105' : 'hover:scale-110'} 
+                  hover:shadow-2xl active:scale-95
                   ${isInfoButtonAnimating ? 'animate-pulse scale-110 bg-fun-blue text-white' : ''}
                   relative overflow-hidden group
                 `}
@@ -129,22 +146,22 @@ export default function HeroSection({ playSound }: HeroSectionProps) {
             </div>
 
             {/* Fun Stats */}
-            <div className="grid md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-              <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-6 transform hover:scale-105 transition-all duration-300 hover:bg-fun-yellow/20 group">
-                <div className="text-4xl font-bold text-fun-blue group-hover:animate-bounce">1M+</div>
-                <div className="text-gray-600">Счастливых клиентов 😊</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto px-4 sm:px-0">
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 transform hover:scale-105 transition-all duration-300 hover:bg-fun-yellow/20 group min-h-[100px] sm:min-h-[120px] flex flex-col justify-center">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-fun-blue group-hover:animate-bounce">1M+</div>
+                <div className="text-xs sm:text-sm lg:text-base text-gray-600 mt-1">Счастливых клиентов 😊</div>
               </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-6 transform hover:scale-105 transition-all duration-300 hover:bg-fun-blue/20 group">
-                <div className="text-4xl font-bold text-fun-yellow group-hover:animate-pulse">999%</div>
-                <div className="text-gray-600">Улыбок в день 😄</div>
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 transform hover:scale-105 transition-all duration-300 hover:bg-fun-blue/20 group min-h-[100px] sm:min-h-[120px] flex flex-col justify-center">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-fun-yellow group-hover:animate-pulse">999%</div>
+                <div className="text-xs sm:text-sm lg:text-base text-gray-600 mt-1">Улыбок в день 😄</div>
               </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-6 transform hover:scale-105 transition-all duration-300 hover:bg-fun-orange/20 group">
-                <div className="text-4xl font-bold text-fun-orange group-hover:animate-wiggle">24/7</div>
-                <div className="text-gray-600">Веселье без остановки 🎉</div>
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 transform hover:scale-105 transition-all duration-300 hover:bg-fun-orange/20 group min-h-[100px] sm:min-h-[120px] flex flex-col justify-center">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-fun-orange group-hover:animate-wiggle">24/7</div>
+                <div className="text-xs sm:text-sm lg:text-base text-gray-600 mt-1">Веселье без остановки 🎉</div>
               </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-6 transform hover:scale-105 transition-all duration-300 hover:bg-fun-pink/20 group">
-                <div className="text-4xl font-bold text-fun-pink group-hover:animate-spin">∞</div>
-                <div className="text-gray-600">Количество шуток 🤣</div>
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 transform hover:scale-105 transition-all duration-300 hover:bg-fun-pink/20 group min-h-[100px] sm:min-h-[120px] flex flex-col justify-center">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-fun-pink group-hover:animate-spin">∞</div>
+                <div className="text-xs sm:text-sm lg:text-base text-gray-600 mt-1">Количество шуток 🤣</div>
               </div>
             </div>
           </div>

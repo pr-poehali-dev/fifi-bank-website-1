@@ -146,3 +146,172 @@
 .animate-glow-pulse {
   animation: glow-pulse 2s ease-in-out infinite;
 }
+
+/* Мобильная оптимизация анимаций */
+@media (max-width: 768px) {
+  .animate-spin,
+  .animate-ping,
+  .animate-pulse {
+    animation-duration: 2s; /* Замедляем анимации на мобильных */
+  }
+
+  .animate-bounce {
+    animation-duration: 1s;
+  }
+
+  /* Упрощаем сложные анимации */
+  .group:hover .animate-spin {
+    animation: none;
+    transform: scale(1.1);
+  }
+}
+
+/* Отключаем анимации для пользователей с предпочтением */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Плавная прокрутка */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Мобильные касания */
+@media (hover: none) and (pointer: coarse) {
+  .group:hover {
+    /* Убираем hover эффекты на touch устройствах */
+  }
+
+  /* Увеличиваем tap targets */
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Адаптивная типографика */
+@media (max-width: 640px) {
+  h1 {
+    line-height: 1.1;
+  }
+
+  h2,
+  h3 {
+    line-height: 1.2;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+}
+
+/* Контрастность для ярких фонов */
+.bg-gradient-to-r {
+  position: relative;
+}
+
+.bg-gradient-to-r::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* Оптимизация для слабых устройств */
+.low-performance * {
+  will-change: auto !important;
+}
+
+.low-performance .animate-spin,
+.low-performance .animate-bounce,
+.low-performance .animate-pulse,
+.low-performance .animate-ping {
+  animation: none !important;
+}
+
+.low-performance .group:hover {
+  transform: scale(1.05) !important;
+  transition: transform 0.2s ease !important;
+}
+
+/* Оптимизация для touch устройств */
+.touch-device button,
+.touch-device a,
+.touch-device [role="button"] {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 12px;
+}
+
+.touch-device .hover\:scale-110:hover {
+  transform: scale(1.05);
+}
+
+.touch-device .hover\:scale-105:hover {
+  transform: scale(1.02);
+}
+
+/* Уменьшение анимаций */
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Адаптивные размеры шрифтов */
+@media screen and (max-width: 640px) {
+  .text-8xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  .text-7xl {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+  .text-6xl {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+  .text-5xl {
+    font-size: 1.75rem;
+    line-height: 1.1;
+  }
+  .text-4xl {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .text-3xl {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+}
+
+/* Улучшенное касание */
+@media (pointer: coarse) {
+  button:active,
+  [role="button"]:active {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+}
+
+/* Контейнеры с безопасными отступами для мобильных */
+@supports (padding: max(0px)) {
+  .safe-area-inset {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
