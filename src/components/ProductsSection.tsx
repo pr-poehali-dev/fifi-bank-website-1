@@ -43,8 +43,9 @@ export default function ProductsSection({ playSound }: ProductsSectionProps) {
           <FiFiCard
             type="debit"
             title="FiFi Дебетовая"
-            description="Кот обнимает твои деньги и не отдает!"
+            description="Рыжий табби обнимает гигантскую FiFiCoin!"
             memeText="Пополнить счёт котиками?"
+            catPhrase="Мур-мур, больше монет!"
             bonus="Бонус: +10 к котовому настроению!"
             onShare={() => handleShare('Дебетовая')}
             playSound={playSound}
@@ -53,8 +54,9 @@ export default function ProductsSection({ playSound }: ProductsSectionProps) {
           <FiFiCard
             type="credit"
             title="FiFi Кредитная"
-            description="От удивления до довольства за одну покупку!"
+            description="Элегантный сиамский кот: от удивления к довольству!"
             memeText="Потратить — не значит расстроиться!"
+            catPhrase="Мяу! Трачу с умом!"
             bonus="Кэшбэк за каждое 'мяу': до 5%"
             onShare={() => handleShare('Кредитная')}
             playSound={playSound}
@@ -63,8 +65,9 @@ export default function ProductsSection({ playSound }: ProductsSectionProps) {
           <FiFiCard
             type="deposit"
             title="FiFi Депозитная"
-            description="Кот охраняет твой сундук с мемами!"
+            description="Пушистый персидский охранник сундуков!"
             memeText="Проценты растут как усы у кота!"
+            catPhrase="Фурр! Деньги под охраной!"
             bonus="До 20% годовых за анекдоты"
             onShare={() => handleShare('Депозитная')}
             playSound={playSound}
@@ -73,8 +76,9 @@ export default function ProductsSection({ playSound }: ProductsSectionProps) {
           <FiFiCard
             type="premium"
             title="FiFi Premium"
-            description="Кот в короне машет лапкой — ты VIP!"
+            description="Королевский мейн-кун в короне VIP!"
             memeText="Элитный сервис для элитных котов!"
+            catPhrase="Прр-р! Я король банка!"
             bonus="Личный кот-консультант 24/7"
             onShare={() => handleShare('Premium')}
             playSound={playSound}
