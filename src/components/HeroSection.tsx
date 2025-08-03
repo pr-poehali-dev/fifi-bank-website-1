@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 import JokeModal from "@/components/JokeModal";
 import InfoModal from "@/components/InfoModal";
+import FiFiToken from "@/components/FiFiToken";
 
 interface HeroSectionProps {
   playSound: () => void;
@@ -159,9 +160,12 @@ export default function HeroSection({ playSound }: HeroSectionProps) {
                 <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-fun-orange group-hover:animate-wiggle">24/7</div>
                 <div className="text-xs sm:text-sm lg:text-base text-gray-600 mt-1">Веселье без остановки 🎉</div>
               </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 transform hover:scale-105 transition-all duration-300 hover:bg-fun-pink/20 group min-h-[100px] sm:min-h-[120px] flex flex-col justify-center">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-fun-pink group-hover:animate-spin">∞</div>
-                <div className="text-xs sm:text-sm lg:text-base text-gray-600 mt-1">Количество шуток 🤣</div>
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 transform hover:scale-105 transition-all duration-300 hover:bg-slate-100/20 group min-h-[100px] sm:min-h-[120px] flex flex-col justify-center">
+                <div className="flex items-center justify-center gap-2 group-hover:animate-bounce">
+                  <FiFiToken size="medium" animated className="group-hover:animate-token-glow" />
+                  <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-700">$1.25</span>
+                </div>
+                <div className="text-xs sm:text-sm lg:text-base text-gray-600 mt-1">Курс FiFiToken 🪙</div>
               </div>
             </div>
           </div>

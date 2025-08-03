@@ -1,3 +1,5 @@
+import FiFiToken from './FiFiToken';
+
 export default function Footer() {
   return (
     <footer id="contacts" className="bg-gray-900 text-white py-16 relative">
@@ -41,6 +43,10 @@ export default function Footer() {
               <li><a href="#" className="text-gray-400 hover:text-fun-blue transition-colors">🐷 Депозиты-шутки</a></li>
               <li><a href="#" className="text-gray-400 hover:text-fun-blue transition-colors">💸 Кредиты-приколы</a></li>
               <li><a href="#" className="text-gray-400 hover:text-fun-blue transition-colors">🎯 Инвест-игры</a></li>
+              <li><a href="/exchange" className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2">
+                <FiFiToken size="small" />
+                FiFiToken
+              </a></li>
             </ul>
           </div>
 

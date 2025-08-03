@@ -30,6 +30,7 @@ export default function Header({ playSound }: HeaderProps) {
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             <a href="#" className="text-gray-700 hover:text-fun-blue transition-colors hover:scale-105 transform text-sm lg:text-base min-h-[44px] flex items-center">Главная</a>
             <a href="#products" className="text-gray-700 hover:text-fun-blue transition-colors hover:scale-105 transform text-sm lg:text-base min-h-[44px] flex items-center">Продукты</a>
+            <a href="/exchange" className="text-gray-700 hover:text-fun-blue transition-colors hover:scale-105 transform text-sm lg:text-base min-h-[44px] flex items-center">🪙 Биржа</a>
             <a href="#about" className="text-gray-700 hover:text-fun-blue transition-colors hover:scale-105 transform text-sm lg:text-base min-h-[44px] flex items-center">О нас</a>
             <a href="#contacts" className="text-gray-700 hover:text-fun-blue transition-colors hover:scale-105 transform text-sm lg:text-base min-h-[44px] flex items-center">Контакты</a>
           </div>
@@ -91,6 +92,13 @@ export default function Header({ playSound }: HeaderProps) {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 🏦 Продукты
+              </a>
+              <a 
+                href="/exchange" 
+                className="text-gray-700 hover:text-fun-blue transition-colors py-3 px-4 rounded-lg hover:bg-fun-blue/10 min-h-[44px] flex items-center font-medium"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                🪙 Биржа
               </a>
               <a 
                 href="#about" 

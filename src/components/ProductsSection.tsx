@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import FiFiCard from "@/components/FiFiCard";
+import FiFiToken from "@/components/FiFiToken";
 
 interface ProductsSectionProps {
   playSound: () => void;
@@ -90,7 +91,42 @@ export default function ProductsSection({ playSound }: ProductsSectionProps) {
           <h3 className="text-2xl font-bold text-gray-700 mb-4">Дополнительные услуги</h3>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Новая карточка FiFiToken */}
+          <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-gradient-to-br from-white to-slate-100 border-2 border-slate-300/50">
+            <CardHeader className="text-center pb-4">
+              <div className="flex justify-center mb-4">
+                <FiFiToken size="xl" glowing className="group-hover:animate-token-glow" />
+              </div>
+              <CardTitle className="text-2xl text-slate-700 font-bold">FiFiToken</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription className="text-center text-gray-600 mb-6 text-lg">
+                Официальная криптовалюта ФиФи банка! Торгуйте, зарабатывайте и получайте бонусы! 🪙
+              </CardDescription>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-center text-sm">
+                  <span className="text-lg mr-2">📈</span>
+                  Стабильный рост курса
+                </li>
+                <li className="flex items-center text-sm">
+                  <span className="text-lg mr-2">🎁</span>
+                  Бонусы за использование
+                </li>
+                <li className="flex items-center text-sm">
+                  <span className="text-lg mr-2">⚡</span>
+                  Мгновенные переводы
+                </li>
+              </ul>
+              <Button 
+                onClick={() => window.location.href = '/exchange'} 
+                className="w-full bg-gradient-to-r from-slate-600 to-slate-700 text-white hover:from-slate-700 hover:to-slate-800 transform hover:scale-105 transition-all hover:animate-bounce-fun active:animate-bounce-fun"
+              >
+                Купить FIFI 🚀
+              </Button>
+            </CardContent>
+          </Card>
+          
           <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-gradient-to-br from-white to-fun-blue/5 border-2 border-fun-blue/20">
             <CardHeader className="text-center pb-4">
               <div className="w-20 h-20 bg-gradient-to-br from-fun-yellow to-fun-orange rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
