@@ -1,23 +1,91 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import FiFiCard from "@/components/FiFiCard";
 
 interface ProductsSectionProps {
   playSound: () => void;
 }
 
 export default function ProductsSection({ playSound }: ProductsSectionProps) {
+  const handleShare = (productType: string) => {
+    if (navigator.share) {
+      navigator.share({
+        title: `FiFiCard ${productType}`,
+        text: `Посмотри на мою новую мемную карту от ФиФи банк!`,
+        url: window.location.href,
+      }).catch(console.error);
+    } else {
+      // Fallback for browsers that don't support Web Share API
+      const text = `Посмотри на мою новую мемную карту от ФиФи банк! ${window.location.href}`;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Ссылка скопирована в буфер обмена!');
+      }).catch(() => {
+        alert('Не удалось скопировать ссылку');
+      });
+    }
+    playSound();
+  };
+
   return (
     <section id="products" className="py-20 bg-white/50 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold bg-gradient-to-r from-fun-blue to-fun-yellow bg-clip-text text-transparent mb-4">
-            Наши мемные продукты 🎯
+            Наши мемные FiFiCard 🎯
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Финансы могут быть веселыми! Проверьте сами 🎪
+            Каждая карта с уникальным котом-банкиром! Выбирай свой стиль 🎪
           </p>
         </div>
 
+        {/* Новые FiFiCard */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <FiFiCard
+            type="debit"
+            title="FiFi Дебетовая"
+            description="Кот обнимает твои деньги и не отдает!"
+            memeText="Пополнить счёт котиками?"
+            bonus="Бонус: +10 к котовому настроению!"
+            onShare={() => handleShare('Дебетовая')}
+            playSound={playSound}
+          />
+          
+          <FiFiCard
+            type="credit"
+            title="FiFi Кредитная"
+            description="От удивления до довольства за одну покупку!"
+            memeText="Потратить — не значит расстроиться!"
+            bonus="Кэшбэк за каждое 'мяу': до 5%"
+            onShare={() => handleShare('Кредитная')}
+            playSound={playSound}
+          />
+          
+          <FiFiCard
+            type="deposit"
+            title="FiFi Депозитная"
+            description="Кот охраняет твой сундук с мемами!"
+            memeText="Проценты растут как усы у кота!"
+            bonus="До 20% годовых за анекдоты"
+            onShare={() => handleShare('Депозитная')}
+            playSound={playSound}
+          />
+          
+          <FiFiCard
+            type="premium"
+            title="FiFi Premium"
+            description="Кот в короне машет лапкой — ты VIP!"
+            memeText="Элитный сервис для элитных котов!"
+            bonus="Личный кот-консультант 24/7"
+            onShare={() => handleShare('Premium')}
+            playSound={playSound}
+          />
+        </div>
+
+        {/* Старые карточки для совместимости */}
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-gray-700 mb-4">Дополнительные услуги</h3>
+        </div>
+        
         <div className="grid md:grid-cols-3 gap-8">
           <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-gradient-to-br from-white to-fun-blue/5 border-2 border-fun-blue/20">
             <CardHeader className="text-center pb-4">
