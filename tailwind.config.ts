@@ -91,11 +91,27 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'bounce-fun': {
+					'0%, 100%': {
+						transform: 'translateY(0) scale(1)',
+						animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)'
+					},
+					'50%': {
+						transform: 'translateY(-25%) scale(1.05)',
+						animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
+					}
+				},
+				'wiggle': {
+					'0%, 100%': { transform: 'rotate(-3deg)' },
+					'50%': { transform: 'rotate(3deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'bounce-fun': 'bounce-fun 0.6s ease-in-out',
+				'wiggle': 'wiggle 1s ease-in-out infinite'
 			}
 		}
 	},

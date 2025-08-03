@@ -1,8 +1,45 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 export default function Index() {
+  const [currentMeme, setCurrentMeme] = useState(0);
+  const [selectedMeme, setSelectedMeme] = useState<number | null>(null);
+
+  const memes = [
+    {
+      emoji: "💰",
+      title: "Когда увидел процент по депозиту",
+      subtitle: "ФиФи банк: где проценты растут быстрее твоих мемов!"
+    },
+    {
+      emoji: "🤑", 
+      title: "Когда кэшбэк больше покупки",
+      subtitle: "ФиФи банк: покупай мемы, получай деньги!"
+    },
+    {
+      emoji: "😱",
+      title: "Когда понял, что банк может быть веселым",
+      subtitle: "ФиФи банк: ломаем стереотипы с 2024 года!"
+    },
+    {
+      emoji: "🎯",
+      title: "Когда одобрили кредит за анекдот",
+      subtitle: "ФиФи банк: смех - наша валюта!"
+    },
+    {
+      emoji: "🚀",
+      title: "Когда перевод дошел мгновенно",
+      subtitle: "ФиФи банк: быстрее чем твой WiFi!"
+    }
+  ];
+
+  const playSound = () => {
+    // Имитация звукового эффекта (в реальном проекте здесь был бы Audio API)
+    console.log("🔊 Звук клика: дзынь!");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-fun-blue/10 via-white to-fun-yellow/10">
       {/* Header */}
@@ -29,10 +66,10 @@ export default function Index() {
             </div>
 
             <div className="flex items-center space-x-4">
-              <Button variant="outline" className="hidden sm:inline-flex border-fun-blue text-fun-blue hover:bg-fun-blue hover:text-white">
+              <Button onClick={playSound} variant="outline" className="hidden sm:inline-flex border-fun-blue text-fun-blue hover:bg-fun-blue hover:text-white hover:animate-bounce-fun active:animate-bounce-fun">
                 Войти с улыбкой 😊
               </Button>
-              <Button className="bg-gradient-to-r from-fun-blue to-fun-yellow hover:from-fun-yellow hover:to-fun-blue transition-all duration-300 transform hover:scale-105">
+              <Button onClick={playSound} className="bg-gradient-to-r from-fun-blue to-fun-yellow hover:from-fun-yellow hover:to-fun-blue transition-all duration-300 transform hover:scale-105 hover:animate-bounce-fun active:animate-bounce-fun">
                 Открыть счет
               </Button>
             </div>
@@ -57,11 +94,11 @@ export default function Index() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <Button size="lg" className="bg-gradient-to-r from-fun-yellow to-fun-orange text-black hover:from-fun-orange hover:to-fun-yellow text-xl px-12 py-4 transform hover:scale-110 transition-all duration-300">
+              <Button onClick={playSound} size="lg" className="bg-gradient-to-r from-fun-yellow to-fun-orange text-black hover:from-fun-orange hover:to-fun-yellow text-xl px-12 py-4 transform hover:scale-110 transition-all duration-300 hover:animate-bounce-fun active:animate-bounce-fun">
                 <Icon name="Smile" className="w-6 h-6 mr-2" />
                 Начать смеяться 😂
               </Button>
-              <Button variant="outline" size="lg" className="border-2 border-fun-blue text-fun-blue hover:bg-fun-blue hover:text-white text-xl px-12 py-4 transform hover:scale-110 transition-all duration-300">
+              <Button onClick={playSound} variant="outline" size="lg" className="border-2 border-fun-blue text-fun-blue hover:bg-fun-blue hover:text-white text-xl px-12 py-4 transform hover:scale-110 transition-all duration-300 hover:animate-bounce-fun active:animate-bounce-fun">
                 <Icon name="Heart" className="w-6 h-6 mr-2" />
                 Узнать больше ❤️
               </Button>
@@ -128,7 +165,7 @@ export default function Index() {
                     Карта меняет дизайн по настроению
                   </li>
                 </ul>
-                <Button className="w-full bg-fun-yellow text-black hover:bg-fun-orange transform hover:scale-105 transition-all">
+                <Button onClick={playSound} className="w-full bg-fun-yellow text-black hover:bg-fun-orange transform hover:scale-105 transition-all hover:animate-bounce-fun active:animate-bounce-fun">
                   Хочу мемную карту! 🎊
                 </Button>
               </CardContent>
@@ -159,7 +196,7 @@ export default function Index() {
                     Досрочное снятие со скидкой
                   </li>
                 </ul>
-                <Button className="w-full bg-fun-pink text-white hover:bg-fun-purple transform hover:scale-105 transition-all" variant="outline">
+                <Button onClick={playSound} className="w-full bg-fun-pink text-white hover:bg-fun-purple transform hover:scale-105 transition-all hover:animate-bounce-fun active:animate-bounce-fun" variant="outline">
                   Открыть веселый депозит! 🎉
                 </Button>
               </CardContent>
@@ -190,11 +227,125 @@ export default function Index() {
                     До 10 млн виртуальных рублей
                   </li>
                 </ul>
-                <Button className="w-full bg-fun-green text-white hover:bg-fun-blue transform hover:scale-105 transition-all" variant="outline">
+                <Button onClick={playSound} className="w-full bg-fun-green text-white hover:bg-fun-blue transform hover:scale-105 transition-all hover:animate-bounce-fun active:animate-bounce-fun" variant="outline">
                   Взять смешной кредит! 🤪
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Meme Gallery Section */}
+      <section className="py-20 bg-gradient-to-r from-fun-yellow/20 to-fun-pink/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-fun-pink to-fun-purple bg-clip-text text-transparent mb-4">
+              Мемная галерея 🖼️
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Коллекция финансовых мемов от наших клиентов! Кликай и смейся! 😂
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            {/* Carousel */}
+            <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
+              <div className="text-center">
+                <div 
+                  className="text-8xl mb-6 cursor-pointer transform hover:scale-110 transition-all duration-300 hover:animate-bounce-fun"
+                  onClick={() => {
+                    playSound();
+                    setSelectedMeme(currentMeme);
+                  }}
+                >
+                  {memes[currentMeme].emoji}
+                </div>
+                <h3 className="text-3xl font-bold text-gray-800 mb-4">
+                  {memes[currentMeme].title}
+                </h3>
+                <p className="text-lg text-gray-600 mb-8">
+                  {memes[currentMeme].subtitle}
+                </p>
+              </div>
+
+              {/* Navigation */}
+              <div className="flex justify-center items-center space-x-4">
+                <Button
+                  onClick={() => {
+                    playSound();
+                    setCurrentMeme(currentMeme === 0 ? memes.length - 1 : currentMeme - 1);
+                  }}
+                  className="bg-fun-blue hover:bg-fun-purple transform hover:scale-110 transition-all hover:animate-bounce-fun"
+                  size="lg"
+                >
+                  <Icon name="ChevronLeft" className="w-6 h-6" />
+                </Button>
+                
+                <div className="flex space-x-2">
+                  {memes.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        playSound();
+                        setCurrentMeme(index);
+                      }}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
+                        index === currentMeme 
+                          ? 'bg-fun-pink scale-125' 
+                          : 'bg-gray-300 hover:bg-fun-blue'
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <Button
+                  onClick={() => {
+                    playSound();
+                    setCurrentMeme(currentMeme === memes.length - 1 ? 0 : currentMeme + 1);
+                  }}
+                  className="bg-fun-blue hover:bg-fun-purple transform hover:scale-110 transition-all hover:animate-bounce-fun"
+                  size="lg"
+                >
+                  <Icon name="ChevronRight" className="w-6 h-6" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Expanded Meme Modal */}
+            {selectedMeme !== null && (
+              <div 
+                className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 animate-fade-in"
+                onClick={() => setSelectedMeme(null)}
+              >
+                <div className="bg-white rounded-3xl p-12 max-w-2xl mx-4 transform scale-in">
+                  <div className="text-center">
+                    <div className="text-9xl mb-6 animate-wiggle">
+                      {memes[selectedMeme].emoji}
+                    </div>
+                    <h3 className="text-4xl font-bold text-gray-800 mb-6">
+                      {memes[selectedMeme].title}
+                    </h3>
+                    <p className="text-xl text-gray-600 mb-8">
+                      {memes[selectedMeme].subtitle}
+                    </p>
+                    <p className="text-lg text-fun-blue font-semibold mb-6">
+                      🎭 Официальный комментарий ФиФи банка: "Это же гениально!"
+                    </p>
+                    <Button 
+                      onClick={() => {
+                        playSound();
+                        setSelectedMeme(null);
+                      }}
+                      className="bg-fun-pink hover:bg-fun-purple text-white hover:animate-bounce-fun"
+                      size="lg"
+                    >
+                      Закрыть с улыбкой 😊
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -213,7 +364,10 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center group transform hover:scale-110 transition-all duration-300">
-              <div className="w-24 h-24 bg-gradient-to-br from-fun-blue to-fun-green rounded-full flex items-center justify-center mx-auto mb-6 group-hover:animate-bounce">
+              <div 
+                onClick={playSound}
+                className="w-24 h-24 bg-gradient-to-br from-fun-blue to-fun-green rounded-full flex items-center justify-center mx-auto mb-6 group-hover:animate-bounce cursor-pointer hover:animate-bounce-fun"
+              >
                 <span className="text-5xl">📶</span>
               </div>
               <h3 className="text-xl font-semibold text-fun-blue mb-3">Надёжность</h3>
@@ -255,7 +409,7 @@ export default function Index() {
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
             Присоединяйтесь к самому весёлому банку в галактике! Гарантируем улыбку или возвращаем ваше настроение! 😄
           </p>
-          <Button size="lg" className="bg-white text-fun-blue hover:bg-gray-100 text-2xl px-16 py-6 transform hover:scale-110 transition-all duration-300">
+          <Button onClick={playSound} size="lg" className="bg-white text-fun-blue hover:bg-gray-100 text-2xl px-16 py-6 transform hover:scale-110 transition-all duration-300 hover:animate-bounce-fun active:animate-bounce-fun">
             <span className="mr-2">🎪</span>
             Стать клиентом-комедиантом!
           </Button>
