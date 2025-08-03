@@ -374,3 +374,76 @@ html {
     padding-right: max(1rem, env(safe-area-inset-right));
   }
 }
+
+/* Оптимизация для страницы биржи */
+@media (min-width: 1024px) {
+  .exchange-container {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .exchange-container {
+    max-width: 1600px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .exchange-container {
+    max-width: 1800px;
+  }
+}
+
+/* Улучшенная типографика для больших экранов */
+@media (min-width: 1280px) {
+  .exchange-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+  }
+
+  .exchange-subtitle {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+}
+
+@media (min-width: 1536px) {
+  .exchange-title {
+    font-size: 4rem;
+    line-height: 1.1;
+  }
+
+  .exchange-subtitle {
+    font-size: 1.75rem;
+    line-height: 1.4;
+  }
+}
+
+/* Оптимизация карточек для десктопов */
+@media (min-width: 1024px) {
+  .exchange-card {
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  .exchange-card-header {
+    padding-bottom: 1rem;
+  }
+}
+
+/* Hover эффекты только для устройств с hover */
+@media (hover: hover) {
+  .exchange-hover:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+}
+
+/* Sticky элементы только на больших экранах */
+@media (max-width: 1023px) {
+  .lg\\:sticky {
+    position: static !important;
+  }
+}
