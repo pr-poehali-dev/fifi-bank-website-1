@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import FiFiCoin from "@/components/FiFiCoin";
 
 interface HeaderProps {
   playSound: () => void;
@@ -10,9 +11,7 @@ export default function Header({ playSound }: HeaderProps) {
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-fun-blue to-fun-yellow rounded-full flex items-center justify-center animate-pulse">
-              <span className="text-2xl">😄</span>
-            </div>
+            <FiFiCoin size={40} onClick={playSound} />
             <div>
               <span className="text-3xl font-bold bg-gradient-to-r from-fun-blue to-fun-yellow bg-clip-text text-transparent">
                 ФиФи банк
