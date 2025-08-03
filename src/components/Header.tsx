@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import FiFiCoin from "@/components/FiFiCoin";
+import FiFiCoinF from "@/components/FiFiCoinF";
 import TelegramButton from "@/components/TelegramButton";
 
 interface HeaderProps {
@@ -12,7 +12,7 @@ export default function Header({ playSound }: HeaderProps) {
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <FiFiCoin size={40} onClick={playSound} />
+            <FiFiCoinF size={40} onClick={playSound} />
             <div>
               <span className="text-3xl font-bold bg-gradient-to-r from-fun-blue to-fun-yellow bg-clip-text text-transparent">
                 ФиФи банк
