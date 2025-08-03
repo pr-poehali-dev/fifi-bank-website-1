@@ -6,7 +6,7 @@ export default {
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}"
 	],
 	prefix: "",
 	theme: {
@@ -61,7 +61,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// ФиФи банк цвета
+				'bank-navy': '#1E3A8A',
+				'bank-turquoise': '#0891B2',
+				'bank-light-gray': '#F8FAFC',
+				'bank-dark': '#0F172A',
+				'bank-accent': '#06B6D4'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
