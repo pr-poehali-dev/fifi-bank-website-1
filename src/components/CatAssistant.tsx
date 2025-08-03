@@ -159,38 +159,16 @@ export default function CatAssistant({ playSound }: CatAssistantProps) {
 
   // Рендер кота в зависимости от настроения и позы
   const renderCat = () => {
-    const baseClasses = "text-6xl transition-all duration-500 transform select-none";
+    const baseClasses = "w-16 h-16 transition-all duration-500 transform select-none";
     
-    let catEmoji = '😸';
     let transform = '';
     
-    switch (catMood) {
-      case 'happy':
-        catEmoji = '😸';
-        break;
-      case 'greeting':
-        catEmoji = '😺';
-        break;
-      case 'playful':
-        catEmoji = '😹';
-        break;
-      case 'satisfied':
-        catEmoji = '😻';
-        break;
-      case 'excited':
-        catEmoji = '🙀';
-        break;
-      case 'sleepy':
-        catEmoji = '😴';
-        break;
-    }
-
     switch (catPose) {
       case 'waving':
         transform = 'rotate-12 scale-110';
         break;
       case 'jumping':
-        transform = 'translateY-4 scale-125';
+        transform = '-translate-y-2 scale-125';
         break;
       case 'sleeping':
         transform = 'rotate-45';
@@ -203,16 +181,18 @@ export default function CatAssistant({ playSound }: CatAssistantProps) {
     }
 
     return (
-      <div className={`${baseClasses} ${transform}`}>
-        {catEmoji}
-      </div>
+      <img 
+        src="/img/9a8ffb49-48d4-4f8a-a562-1aad3003a0f1.jpg"
+        alt="Кот-консультант ФиФи банка"
+        className={`${baseClasses} ${transform} rounded-full object-cover border-2 border-white shadow-lg`}
+      />
     );
   };
 
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end cat-assistant">
       {/* Речевой пузырь */}
       {showBubble && currentPhrase && (
         <div className="mb-4 max-w-xs animate-in slide-in-from-right duration-300">
@@ -227,7 +207,7 @@ export default function CatAssistant({ playSound }: CatAssistantProps) {
 
       {/* Кот */}
       <div 
-        className="bg-gradient-to-br from-fun-yellow/20 to-fun-blue/20 rounded-full p-3 cursor-pointer hover:scale-110 transition-all duration-300 shadow-lg backdrop-blur-sm border border-white/30"
+        className="bg-gradient-to-br from-fun-yellow/30 to-fun-blue/30 rounded-full p-2 cursor-pointer hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-sm border-2 border-white/50"
         onClick={() => {
           setCatPose('jumping');
           showRandomPhrase(currentSection);
@@ -241,6 +221,7 @@ export default function CatAssistant({ playSound }: CatAssistantProps) {
           setCatMood('happy');
           setCatPose('sitting');
         }}
+        title="Кот-консультант ФиФи банка"
       >
         {renderCat()}
       </div>

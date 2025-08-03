@@ -28,11 +28,11 @@ export default function ProductsSection({ playSound }: ProductsSectionProps) {
   };
 
   return (
-    <section id="products" className="py-20 bg-white/50 backdrop-blur-sm">
+    <section id="products" className="py-20 bg-white/50 backdrop-blur-sm responsive-section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-fun-blue to-fun-yellow bg-clip-text text-transparent mb-4">
-            Наши мемные FiFiCard 🎯
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-fun-blue to-fun-yellow bg-clip-text text-transparent mb-4 section-title">
+            Наши мемные FiFiCard <span className="emoji">🎯</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Каждая карта с уникальным котом-банкиром! Выбирай свой стиль 🎪

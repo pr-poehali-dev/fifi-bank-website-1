@@ -4,11 +4,11 @@ interface AdvantagesSectionProps {
 
 export default function AdvantagesSection({ playSound }: AdvantagesSectionProps) {
   return (
-    <section id="advantages" className="py-20 bg-gradient-to-r from-fun-blue/10 to-fun-yellow/10">
+    <section id="advantages" className="py-20 bg-gradient-to-r from-fun-blue/10 to-fun-yellow/10 responsive-section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-fun-blue to-fun-yellow bg-clip-text text-transparent mb-4">
-            Почему мы самые крутые? 🚀
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-fun-blue to-fun-yellow bg-clip-text text-transparent mb-4 section-title">
+            Почему мы самые крутые? <span className="emoji">🚀</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Потому что банкинг может быть веселым! 🎪
