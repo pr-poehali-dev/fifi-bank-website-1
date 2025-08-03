@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import FiFiCoin from "@/components/FiFiCoin";
+import TelegramButton from "@/components/TelegramButton";
 
 interface HeaderProps {
   playSound: () => void;
@@ -28,6 +29,7 @@ export default function Header({ playSound }: HeaderProps) {
           </div>
 
           <div className="flex items-center space-x-4">
+            <TelegramButton playSound={playSound} />
             <Button onClick={playSound} variant="outline" className="hidden sm:inline-flex border-fun-blue text-fun-blue hover:bg-fun-blue hover:text-white hover:animate-bounce-fun active:animate-bounce-fun">
               Войти с улыбкой 😊
             </Button>
