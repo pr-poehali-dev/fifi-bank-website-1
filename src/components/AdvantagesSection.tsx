@@ -4,7 +4,7 @@ interface AdvantagesSectionProps {
 
 export default function AdvantagesSection({ playSound }: AdvantagesSectionProps) {
   return (
-    <section className="py-20 bg-gradient-to-r from-fun-blue/10 to-fun-yellow/10">
+    <section id="advantages" className="py-20 bg-gradient-to-r from-fun-blue/10 to-fun-yellow/10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold bg-gradient-to-r from-fun-blue to-fun-yellow bg-clip-text text-transparent mb-4">

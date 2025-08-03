@@ -5,6 +5,7 @@ import MemeGallery from "@/components/MemeGallery";
 import AdvantagesSection from "@/components/AdvantagesSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import CatAssistant from "@/components/CatAssistant";
 
 export default function Index() {
   const playSound = () => {
@@ -21,6 +22,7 @@ export default function Index() {
       <AdvantagesSection playSound={playSound} />
       <CTASection playSound={playSound} />
       <Footer />
+      <CatAssistant playSound={playSound} />
     </div>
   );
 }

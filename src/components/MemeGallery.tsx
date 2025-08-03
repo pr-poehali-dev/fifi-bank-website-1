@@ -45,7 +45,7 @@ export default function MemeGallery({ playSound }: MemeGalleryProps) {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-r from-fun-yellow/20 to-fun-pink/20">
+    <section id="memes" className="py-20 bg-gradient-to-r from-fun-yellow/20 to-fun-pink/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold bg-gradient-to-r from-fun-pink to-fun-purple bg-clip-text text-transparent mb-4">
