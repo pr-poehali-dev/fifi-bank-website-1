@@ -99,3 +99,50 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Кастомные анимации для ФиФи банка */
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes bounce-fun {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-25%) scale(1.05);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(79, 195, 247, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(79, 195, 247, 0.8),
+      0 0 30px rgba(255, 215, 0, 0.6);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.animate-bounce-fun {
+  animation: bounce-fun 0.6s ease-in-out;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
